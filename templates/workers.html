@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+<h1>Find Agricultural Workers</h1>
+<form class="search"><input name="skill" value="{{ skill }}" placeholder="Skill e.g. Spraying"><input name="location" value="{{ location }}" placeholder="Location"><button class="btn">Search</button></form>
+<div class="grid">{% for w in workers %}<div class="card"><h3>{{ w.name }}</h3><p>📍 {{ w.location }} · 🛠 {{ w.skill }}</p><p>Experience: {{ w.experience_years }} years · ⭐ {{ w.rating }}</p><p>Equipment: {{ w.equipment }} · Rate: ₹{{ w.daily_rate }}</p>
+<form method="post" action="/book/{{ w.id }}"><input type="hidden" name="work_type" value="{{ w.skill }}"><input type="date" name="booking_date" required><button class="btn">Book Worker</button></form></div>
+{% else %}<p>No matching workers found.</p>{% endfor %}</div>{% endblock %}

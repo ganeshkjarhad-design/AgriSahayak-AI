@@ -1,0 +1,10 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgriSahayak AI</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<nav><a class="brand" href="/">🌾 AgriSahayak AI</a>
+<div><a href="/predict">Disease AI</a><a href="/workers">Find Workers</a><a href="/register-worker">Join as Worker</a><a href="/dashboard">Dashboard</a></div></nav>
+{% with messages=get_flashed_messages() %}{% if messages %}<div class="flash">{{ messages[0] }}</div>{% endif %}{% endwith %}
+<main>{% block content %}{% endblock %}</main>
+<footer>Academic prototype • Verify agricultural advice with qualified local guidance and product labels.</footer>
+</body></html>

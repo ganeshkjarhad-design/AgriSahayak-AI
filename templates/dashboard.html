@@ -1,0 +1,3 @@
+{% extends "base.html" %}{% block content %}<h1>Project Dashboard</h1>
+<div class="stats"><div class="card"><b>{{ workers_count }}</b><span>Workers</span></div><div class="card"><b>{{ bookings_count }}</b><span>Bookings</span></div><div class="card"><b>{{ predictions_count }}</b><span>Saved Predictions</span></div></div>
+<div class="card"><h2>Worker skill distribution</h2>{% for x in top %}<p>{{ x.skill }} <b>{{ x.c }}</b></p>{% endfor %}</div>{% endblock %}

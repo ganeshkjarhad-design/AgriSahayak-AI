@@ -1,0 +1,25 @@
+AGRI SAHAYAK AI — QUICK RUN GUIDE
+
+1. Install Python 3.11/3.12.
+2. Open terminal inside this project folder.
+3. python -m venv venv
+4. Activate the environment.
+5. pip install -r requirements.txt
+6. python app.py
+7. Open http://127.0.0.1:5000
+
+DATABASE:
+The app automatically creates agrisaahayak.db from schema.sql.
+
+AI:
+Put PlantVillage class folders under data/PlantVillage.
+Run:
+python train_model.py
+
+If TensorFlow installation is too heavy for your laptop, run the website first; the worker/database modules work independently. For the final demonstration, train the model on a selected subset or use a lab/college GPU environment.
+
+FINAL PRESENTATION:
+Use PPT_CONTENT.md as the slide-by-slide script. Add your own screenshots and measured model results after training. Do NOT invent accuracy numbers.
+
+FINAL REPORT:
+PROJECT_SYNOPSIS.md can be expanded into the report chapters.

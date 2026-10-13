@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriSahayak AI</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, "Noto Sans Devanagari", sans-serif;
+            background: #f4f8f1;
+            color: #203526;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 16px 7%;
+            background: white;
+            box-shadow: 0 2px 12px #183c1710;
+        }
+
+        .brand {
+            font-size: 23px;
+            font-weight: bold;
+            color: #217a39;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 17px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        a {
+            color: #28683a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover { color: #104d23; }
+
+        select {
+            padding: 10px;
+            border: 1px solid #cbd8c8;
+            border-radius: 9px;
+            background: white;
+            font-size: 14px;
+        }
+
+        .hero {
+            margin: 28px auto;
+            width: 88%;
+            min-height: 340px;
+            padding: 55px 7%;
+            border-radius: 24px;
+            background: linear-gradient(120deg, #e0f3d9, #f8f9e8);
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content { max-width: 680px; }
+
+        .tag {
+            color: #287a3c;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: clamp(30px, 5vw, 48px);
+            line-height: 1.2;
+            margin: 16px 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #4c6351;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 14px 22px;
+            border-radius: 10px;
+            background: #23823d;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #17652d;
+            color: white;
+        }
+
+        .services {
+            padding: 20px 7% 55px;
+        }
+
+        .services h2 {
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            padding: 26px;
+            background: white;
+            border-radius: 18px;
+            border: 1px solid #e6eee2;
+            box-shadow: 0 6px 22px #173e1708;
+        }
+
+        .card .icon { font-size: 35px; }
+
+        .card h3 { color: #27743a; }
+
+        .card p {
+            color: #607064;
+            line-height: 1.7;
+        }
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            color: #eaf7e9;
+            background: #174b2b;
+        }
+
+        @media (max-width: 650px) {
+            nav { padding: 16px 5%; }
+            .hero { width: 92%; padding: 35px 7%; }
+            .nav-links { gap: 12px; }
+        }
+    </style>
+</head>
+
+<body>
+<nav>
+    <div class="brand">🌱 AgriSahayak AI</div>
+
+    <div class="nav-links">
+        <a href="/">{{ tr('home') }}</a>
+        <a href="/predict">{{ tr('predict') }}</a>
+        <a href="/workers">{{ tr('workers') }}</a>
+        <a href="/register-worker">{{ tr('register') }}</a>
+        <a href="/dashboard">{{ tr('dashboard') }}</a>
+
+        <select aria-label="{{ tr('language') }}"
+                onchange="window.location.href='/set-language/' + this.value">
+            {% for code, name in languages.items() %}
+            <option value="{{ code }}"
+                {% if lang == code %}selected{% endif %}>
+                {{ name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="tag">🌾 {{ tr('tagline') }}</div>
+
+        <h1>{{ tr('welcome') }}</h1>
+
+        <p>{{ tr('hero_text') }}</p>
+
+        <a class="btn" href="/predict">
+            🌿 {{ tr('get_started') }} →
+        </a>
+    </div>
+</section>
+
+<section class="services">
+    <h2>{{ tr('features') }}</h2>
+
+    <div class="cards">
+        <div class="card">
+            <div class="icon">🍃</div>
+            <h3>{{ tr('feature1') }}</h3>
+            <p>{{ tr('feature1_text') }}</p>
+            <a href="/predict">{{ tr('get_started') }} →</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">👨‍🌾</div>
+            <h3>{{ tr('feature2') }}</h3>
+            <p>{{ tr('feature2_text') }}</p>
+            <a href="/workers">{{ tr('workers') }} →</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌱</div>
+            <h3>{{ tr('feature3') }}</h3>
+            <p>{{ tr('feature3_text') }}</p>
+            <a href="/dashboard">{{ tr('dashboard') }} →</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © AgriSahayak AI | {{ tr('footer') }}
+</footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block content %}<h1>Register as Agricultural Worker</h1>
+<form class="card form" method="post">
+<input name="name" placeholder="Full name" required><input name="phone" placeholder="Phone" required><input name="location" placeholder="Location" required>
+<input name="skill" placeholder="Skill e.g. Crop Spraying" required><input name="experience_years" type="number" min="0" placeholder="Experience years">
+<input name="equipment" placeholder="Equipment"><input name="daily_rate" type="number" min="0" placeholder="Rate per day/acre">
+<input name="available_days" placeholder="Available days"><button class="btn">Register</button>
+</form>{% endblock %}
